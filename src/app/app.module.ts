@@ -8,12 +8,16 @@ import { TodolistComponent } from './component/todolist/todolist.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { StdformComponent } from './component/stdform/stdform.component';
+import { StdtableComponent } from './component/stdtable/stdtable.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoformComponent,
-    TodolistComponent
+    TodolistComponent,
+    StdformComponent,
+    StdtableComponent
   ],
   imports: [
     BrowserModule,

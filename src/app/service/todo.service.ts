@@ -36,9 +36,13 @@ export class TodoService {
     this._snackbar.opensnackbar(`the todo item ${todo.todoItem} is added successfully`)
   }
   removetodo(todo:Itodo){
-    const index=this.todoArr.findIndex((todo)=>todo.todoId===todo.todoId)
-    this.todoArr.splice(index,1)
-    localStorage.setItem('todoArr',JSON.stringify(this.todoArr))
-    this._snackbar.opensnackbar(`the todo item ${todo.todoItem} removed successfully`)
+    let confirmtrue=confirm()
+    if(confirmtrue){
+      const index=this.todoArr.findIndex((todo)=>todo.todoId===todo.todoId)
+      this.todoArr.splice(index,1)
+      localStorage.setItem('todoArr',JSON.stringify(this.todoArr))
+      this._snackbar.opensnackbar(`the todo item ${todo.todoItem} removed successfully`)
+    }
+    
   }
 }

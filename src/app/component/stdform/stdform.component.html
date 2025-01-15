@@ -1,0 +1,101 @@
+<div class="card">
+    <div class="card-body">
+        <form #stdForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="fname">First Name*</label>
+                <input 
+                type="text" 
+                id="fname" 
+                pattern="[a-zA-Z]+" 
+                required 
+                #fname="ngModel"
+                ngModel 
+                name="fname" 
+                class="form-control">
+            </div>
+
+            <strong 
+                *ngIf="fname.touched && fname.hasError('required')"
+                class="text-danger"
+            >first Name is required field</strong>
+            <strong 
+                *ngIf="fname.dirty && fname.hasError('pattern')"
+                class="text-danger"
+            >latter only no-special symbol or number</strong>
+
+            <br>
+
+            <div class="form-group">
+                <label for="lname">Last Name*</label>
+                <input 
+                type="text" 
+                required 
+                pattern="[a-zA-Z]+" 
+                ngModel name="lname"
+                #lname="ngModel" 
+                class="form-control" 
+                id="lname">
+            </div>
+
+            <strong 
+            *ngIf="lname.touched && lname.hasError('required')"
+            class="text-danger"
+                >Last Name is required field</strong>
+                <strong 
+            *ngIf="lname.dirty && lname.hasError('pattern')"
+               class="text-danger"
+                >latter only no-special symbol or number</strong>
+
+            <br>
+
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input 
+                type="text" 
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
+                required 
+                #email="ngModel"
+                ngModel 
+                name="email" 
+                class="form-control" 
+                id="email">
+            </div>
+
+            <strong 
+                *ngIf="email.touched && email.hasError('required')"
+                class="text-danger"
+            >email is required field</strong>
+             <strong 
+                  *ngIf="email.dirty && email.hasError('pattern')"
+                   class="text-danger"
+            >email is required field (abc@gmail.com)</strong>
+
+            <br>
+
+            <div class="form-group">
+                <label for="contact">Contact*</label>
+                <input 
+                type="text" 
+                id="contact" 
+                pattern="[0-9]{10}" 
+                #contact="ngModel"
+                required 
+                ngModel 
+                name="contact" 
+                class="form-control"
+                >
+            </div>
+
+            <strong 
+                *ngIf="contact.touched && contact.hasError('required')"
+                class="text-danger"
+            >contact is required field</strong>
+            <strong 
+                *ngIf="contact.dirty && contact.hasError('pattern')"
+                class="text-danger"
+            >number only no-latter,special symbol</strong>
+
+            <button class="btn btn-block" mat-raised-button color="primary">Add Student</button>
+        </form>
+    </div>
+</div>
