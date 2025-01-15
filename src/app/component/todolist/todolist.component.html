@@ -4,9 +4,9 @@
      class="list-group-item d-flex justify-content-between">
         {{todo.todoItem}}
         <div>
-            <button class="btn btn-sm btn-primary mr-2">Edit</button>
+            <button mat-raised-button color="primary" class="mr-2">Edit</button>
             <button (click)="onRemove(todo)"
-             class="btn btn-sm btn-danger">Remove</button>
+             class="btn" mat-raised-button color="warn">Remove</button>
         </div>
     </li>
 </ul>
