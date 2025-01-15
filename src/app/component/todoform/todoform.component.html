@@ -1,0 +1,25 @@
+<form #todoForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="todoItem">Todo Item</label>
+        <input
+        name="todoItem" 
+        type="text"
+        required 
+        pattern="[a-zA-Z]+"
+        #todoItem="ngModel"
+        ngModel 
+        class="form-control" 
+        id="todoItem">
+    </div>
+    <strong 
+    *ngIf="todoItem.touched && todoItem.hasError('required')"
+     class="text-danger">
+        this is required field
+    </strong>
+    <strong
+    *ngIf="todoItem.touched && todoItem.hasError('pattern')"
+     class="text-danger">
+        latter only field
+    </strong>
+    <button class="btn btn-sm btn-outline-primary btn-block">Add Todo</button>
+</form>
